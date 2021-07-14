@@ -1,3 +1,4 @@
+"use strict";
 const orgUrl = document.querySelector(".link");
 const orgTitle = document.querySelector(".title");
 const orgDescription = document.querySelector(".description");
