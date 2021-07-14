@@ -1,7 +1,8 @@
 "use strict";
-const orgUrl = document.querySelector(".link");
-const orgTitle = document.querySelector(".title");
-const orgDescription = document.querySelector(".description");
+// const orgUrl = document.querySelector(".link");
+// const orgTitle = document.querySelector(".title");
+// const orgDescription = document.querySelector(".description");
+const searchClass = document.querySelector(".searchResults");
 
 function fetchData() {
   //fetching data from api
@@ -11,20 +12,33 @@ function fetchData() {
     })
     .then((data) => {
       console.log(data);
-      data
-        .map((user) => {
-          for (let i = 0; i < 1; i++) {
-            console.log(user.meta.ogUrl);
-            console.log(user.meta.ogTitle);
-            console.log(user.meta.ogDescription);
-            console.log("\n\n");
+      data.forEach((user, i) => {
+        // for (let i = 0; i < 1; i++) {
+        console.log(user.meta.ogUrl);
+        console.log(user.meta.ogTitle);
+        console.log(user.meta.ogDescription);
+        console.log("\n\n");
 
-            orgUrl.textContent = user.meta.ogUrl;
-            orgTitle.textContent = user.meta.ogTitle;
-            orgDescription.textContent = user.meta.ogDescription;
-          }
-        })
-        .join("");
+        const output = `<div class="result">
+            <h1> Result ${i + 1} </h1>
+          <a class="link" href=${user.meta.ogUrl}> ${user.meta.ogUrl} </a>
+          <h2>
+            <a class="title" href="#"
+              >${user.meta.ogTitle}</a
+            >
+          </h2>
+
+          <p class="description">
+            ${user.meta.ogDescription}
+          </p>
+        </div>`;
+
+        // orgUrl.textContent = user.meta.ogUrl;
+        // orgTitle.textContent = user.meta.ogTitle;
+        // orgDescription.textContent = user.meta.ogDescription;
+
+        searchClass.innerHTML += output;
+      });
       // console.log(html);
     })
 
@@ -34,3 +48,17 @@ function fetchData() {
 }
 
 fetchData();
+
+// /* 0 0 0 0 0
+// 1 1 1 1 1
+// 2 2 2 2 2
+// 3 3 3 3 3
+// 4 4 4 4 4 */
+
+// for(let i=0;i<5;i++)
+// {
+//   for(let j=0;j<5;j++)
+//   {
+//     console.log(i)
+//   }
+// }
