@@ -20,7 +20,7 @@ function fetchData() {
         console.log("\n\n");
 
         const output = `<div class="result">
-            <h1> Result ${i + 1} </h1>
+            
           <a class="link" href=${user.meta.ogUrl}> ${user.meta.ogUrl} </a>
           <h2>
             <a class="title" href="#"
