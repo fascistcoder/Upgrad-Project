@@ -13,10 +13,10 @@ function fetchData() {
       data
         .map((user) => {
           for (let i = 0; i < 1; i++) {
-            // console.log(user.meta.ogUrl);
-            // console.log(user.meta.ogTitle);
-            // console.log(user.meta.ogDescription);
-            // console.log("\n\n");
+            console.log(user.meta.ogUrl);
+            console.log(user.meta.ogTitle);
+            console.log(user.meta.ogDescription);
+            console.log("\n\n");
 
             orgUrl.textContent = user.meta.ogUrl;
             orgTitle.textContent = user.meta.ogTitle;
